@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Brands List</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a class="btn btn-primary" href="/brands/create">Add New</a>
+      </div>
+    </div>
+    <div class="spacer15"></div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+               <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">Name</th>
+                 <th scope="col">Operations</th>
+               </tr>
+            </thead>
+            <tbody>
+               <% if(@brands.count>0) %>
+                  <% @brands.each do |brand| %>
+                    <tr>
+                       <td scope="row"><%= brand.id %></td>
+                       <td><%= brand.name %></td>
+                       <td>
+                         <a href="/brands/read?id=<%= brand.id %>" class="show-link"><i class="fas fa-search"></i></a>
+                         <a href="/brands/update?id=<%= brand.id %>" class="edit-link"><i class="fas fa-edit"></i></a>
+                         <a href="/brands/delete?id=<%= brand.id %>" class="delete-link"><i class="fas fa-trash-alt"></i></a>
+                       </td>
+                    </tr>
+                  <% end %>
+               <% end %>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>

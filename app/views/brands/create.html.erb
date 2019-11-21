@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <h1>Create Brand</h1>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_tag(model: @brand) do %>
+        <div class="form-group">
+          <%= label_tag(:name, "Brand Name:") %>
+          <%= text_field_tag 'name', nil, class:'form-control', placeholder: 'Type brand\'s name' %>
+          <div class="spacer15"></div>
+          <%= button_tag 'Save Brand', class:'btn btn-primary' %>
+          <a class="btn btn-warning" href="<%= url_for("/brands/index") %>">Cancel</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
