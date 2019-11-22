@@ -8,6 +8,9 @@
     <div class="col">
       <a class="btn btn-primary" href="/products/create">Add New</a>
     </div>
+    <div class="col">
+      <a class="btn btn-primary float-right" href="/">Home Page</a>
+    </div>
   </div>
   <div class="spacer15"></div>
   <div class="row">
@@ -27,7 +30,7 @@
             <tr>
               <td scope="row"><%= product.id %></td>
               <td><%= product.name %></td>
-              <td><%= product.brand_id %></td>
+              <td><%= product.brand.name %></td>
               <td>
                 <a href="/products/read?id=<%= product.id %>" class="show-link"><i class="fas fa-search"></i></a>
                 <a href="/products/update?id=<%= product.id %>" class="edit-link"><i class="fas fa-edit"></i></a>
@@ -42,6 +45,8 @@
         <% end %>
         </tbody>
       </table>
+
+
     </div>
   </div>
 </div>
