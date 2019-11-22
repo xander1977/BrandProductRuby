@@ -23,10 +23,10 @@ class BrandsController < ApplicationController
   end
 
   def update
-    if nil != params[:id] && params[:id].to_i > 0
+    if '' != params[:id] && params[:id].to_i > 0
       brand = Brand.find_by(id: params[:id])
       @name = brand.name
-      @id = params[:id]
+      @id = brand.id
 
       if request.method == "POST"
         if nil != params[:name]
@@ -35,7 +35,7 @@ class BrandsController < ApplicationController
           brand.save
           redirect_to :action => "index"
         else
-
+          redirect_to :action => "index"
         end
       end
     else

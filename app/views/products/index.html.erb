@@ -1,2 +1,47 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Products List</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <a class="btn btn-primary" href="/products/create">Add New</a>
+    </div>
+  </div>
+  <div class="spacer15"></div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Operations</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% if(@products.count>0) %>
+          <% @products.each do |product| %>
+            <tr>
+              <td scope="row"><%= product.id %></td>
+              <td><%= product.name %></td>
+              <td><%= product.brand_id %></td>
+              <td>
+                <a href="/products/read?id=<%= product.id %>" class="show-link"><i class="fas fa-search"></i></a>
+                <a href="/products/update?id=<%= product.id %>" class="edit-link"><i class="fas fa-edit"></i></a>
+                <a href="/products/delete?id=<%= product.id %>" class="delete-link"><i class="fas fa-trash-alt"></i></a>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="4">No record(s) found</td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

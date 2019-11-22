@@ -1,2 +1,29 @@
-<h1>Products#read</h1>
-<p>Find me in app/views/products/read.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Brand Detail</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <strong>Brand name:</strong> <%= @brand %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <strong>Product name:</strong> <%= @name %>
+    </div>
+  </div>
+  <% if @description != '' %>
+    <div class="row">
+      <div class="col">
+        <strong>Description:</strong> <%= @description %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col">
+      <a href="<%= url_for("/products/index") %>">Back to products list</a>
+    </div>
+  </div>
+</div>
